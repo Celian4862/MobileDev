@@ -1,6 +1,7 @@
 package ph.edu.usc.mobiledev;
 
 import android.os.Bundle;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class AppActivity extends AppCompatActivity {
+    Button check_out;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,5 +22,9 @@ public class AppActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        check_out = findViewById(R.id.checkout);
+
+        check_out.setText(getString(R.string.check_out, getIntent().getIntExtra("checkout", 0)));
     }
 }
