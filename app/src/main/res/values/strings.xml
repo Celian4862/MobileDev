@@ -12,4 +12,5 @@
     <string name="invalid_field">Invalid field/s.</string>
     <string name="incorrect_credentials">Incorrect credentials.</string>
     <string name="check_out">Check Out (%1$d items)</string>
+    <string name="view_details">View Details</string>
 </resources>
