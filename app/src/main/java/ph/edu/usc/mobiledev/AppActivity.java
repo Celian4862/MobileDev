@@ -46,9 +46,9 @@ public class AppActivity extends AppCompatActivity {
         check_out = findViewById(R.id.checkout);
         list = findViewById(R.id.list);
 
+        check_out.setText(getString(R.string.check_out, getIntent().getIntExtra("checkout", 0)));
+
         ListAdapter adapter = new ListAdapter(this, R.layout.list_layout, product_names, prices, imgids);
         list.setAdapter(adapter);
-
-        check_out.setText(getString(R.string.check_out, getIntent().getIntExtra("checkout", 0)));
     }
 }
