@@ -1,10 +1,12 @@
 package ph.edu.usc.mobiledev;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -31,10 +33,16 @@ public class ListAdapter extends ArrayAdapter<String> {
         LayoutInflater inflater = context.getLayoutInflater();
         View rowView = inflater.inflate(R.layout.list_layout, null, true);
 
+        Button view_details = rowView.findViewById(R.id.btn);
         ImageView img = rowView.findViewById(R.id.img);
         TextView name  = rowView.findViewById(R.id.name);
         TextView price = rowView.findViewById(R.id.price);
 
+        view_details.setOnClickListener(v -> {
+            Intent dtl;
+            dtl = new Intent(context, DetailsActivity.class);
+            context.startActivity(dtl);
+        });
         img.setImageResource(img_ids[position]);
         name.setText(product_names[position]);
         String price_format = "$ " + prices[position] + ".00";
