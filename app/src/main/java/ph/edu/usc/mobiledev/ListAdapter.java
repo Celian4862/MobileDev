@@ -15,16 +15,16 @@ import androidx.annotation.Nullable;
 
 public class ListAdapter extends ArrayAdapter<String> {
     private final Activity context;
-    private final String[] product_names;
-    private final Integer[] prices;
-    private final Integer[] img_ids;
+    private final Integer[] img_ids, prices;
+    private final String[] product_names, details;
 
-    public ListAdapter(@NonNull Activity context, int resource, String[] product_names, Integer[] prices, Integer[] imgids) {
+    public ListAdapter(@NonNull Activity context, int resource, Integer[] imgids, Integer[] prices, String[] details, String[] product_names) {
         super(context, resource, product_names);
         this.context = context;
-        this.product_names = product_names;
-        this.prices = prices;
         this.img_ids = imgids;
+        this.details = details;
+        this.prices = prices;
+        this.product_names = product_names;
     }
 
     @NonNull
@@ -41,6 +41,10 @@ public class ListAdapter extends ArrayAdapter<String> {
         view_details.setOnClickListener(v -> {
             Intent dtl;
             dtl = new Intent(context, DetailsActivity.class);
+            dtl.putExtra("img", img_ids[position]);
+            dtl.putExtra("details", details[position]);
+            dtl.putExtra("price", prices[position]);
+            dtl.putExtra("product_name", product_names[position]);
             context.startActivity(dtl);
         });
         img.setImageResource(img_ids[position]);
