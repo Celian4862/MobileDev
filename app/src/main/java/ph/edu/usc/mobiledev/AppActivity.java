@@ -17,7 +17,7 @@ public class AppActivity extends AppCompatActivity {
 
     private final Integer[] prices = {25, 30, 15, 40, 45};
 
-    private final Integer[] imgids = {
+    private final Integer[] img_ids = {
             R.drawable.bouquet1,
             R.drawable.bouquet2,
             R.drawable.bouquet3,
@@ -61,7 +61,7 @@ public class AppActivity extends AppCompatActivity {
             startActivity(check_out);
         });
 
-        ListAdapter adapter = new ListAdapter(this, R.layout.list_layout, imgids, prices, details, product_names);
+        ListAdapter adapter = new ListAdapter(this, R.layout.list_layout, img_ids, prices, details, product_names);
         list.setAdapter(adapter);
     }
 }
