@@ -15,7 +15,7 @@ import androidx.core.view.WindowInsetsCompat;
 import java.util.Locale;
 
 public class DetailsActivity extends AppCompatActivity {
-    Button back, confirm, minus, plus;
+    Button confirm, minus, plus;
     ImageView img;
     Integer count;
     TextView details, price, product_name, qty;
@@ -31,7 +31,6 @@ public class DetailsActivity extends AppCompatActivity {
             return insets;
         });
 
-        back = findViewById(R.id.back);
         confirm = findViewById(R.id.confirm);
         minus = findViewById(R.id.minus);
         plus = findViewById(R.id.plus);
@@ -42,10 +41,6 @@ public class DetailsActivity extends AppCompatActivity {
         product_name = findViewById(R.id.product_name);
         qty = findViewById(R.id.qty);
 
-        back.setOnClickListener(v -> {
-            Intent back = new Intent(DetailsActivity.this, AppActivity.class);
-            startActivity(back);
-        });
         confirm.setOnClickListener(v -> {
             Intent confirm = new Intent(DetailsActivity.this, AppActivity.class);
             startActivity(confirm);
