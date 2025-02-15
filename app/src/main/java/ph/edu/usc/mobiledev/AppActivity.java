@@ -15,7 +15,7 @@ public class AppActivity extends AppCompatActivity {
     Button check_out;
     ListView list;
 
-    private final Integer[] img_ids = {
+    private final int[] img_ids = {
             R.drawable.bouquet1,
             R.drawable.bouquet2,
             R.drawable.bouquet3,
@@ -23,7 +23,7 @@ public class AppActivity extends AppCompatActivity {
             R.drawable.bouquet5,
     };
 
-    private final Integer[] prices = {25, 30, 15, 40, 45};
+    private final int[] prices = {25, 30, 15, 40, 45};
 
     private final String[] details = {
             "Bouquet with a colour theme of pink.",
@@ -65,9 +65,16 @@ public class AppActivity extends AppCompatActivity {
         }
 
         check_out.setText(getString(R.string.check_out, total_count));
+        int finalTotal_count = total_count;
         check_out.setOnClickListener(v -> {
-            Intent check_out = new Intent(AppActivity.this, CheckoutActivity.class);
-            startActivity(check_out);
+            if (finalTotal_count > 0) {
+                Intent check_out = new Intent(AppActivity.this, CheckoutActivity.class);
+                check_out.putExtra("prices", prices);
+                check_out.putExtra("product_names", product_names);
+                check_out.putExtra("qty", getIntent().getIntArrayExtra("qty"));
+                check_out.putExtra("total", finalTotal_count);
+                startActivity(check_out);
+            }
         });
 
         ListAdapter adapter = new ListAdapter(this, R.layout.list_layout, img_ids, prices, details, product_names);
