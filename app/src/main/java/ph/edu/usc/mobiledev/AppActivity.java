@@ -15,8 +15,6 @@ public class AppActivity extends AppCompatActivity {
     Button check_out;
     ListView list;
 
-    private final Integer[] prices = {25, 30, 15, 40, 45};
-
     private final Integer[] img_ids = {
             R.drawable.bouquet1,
             R.drawable.bouquet2,
@@ -24,6 +22,8 @@ public class AppActivity extends AppCompatActivity {
             R.drawable.bouquet4,
             R.drawable.bouquet5,
     };
+
+    private final Integer[] prices = {25, 30, 15, 40, 45};
 
     private final String[] details = {
             "Bouquet with a colour theme of pink.",
