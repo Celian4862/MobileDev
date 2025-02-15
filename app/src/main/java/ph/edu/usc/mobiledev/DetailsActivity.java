@@ -58,11 +58,9 @@ public class DetailsActivity extends AppCompatActivity {
             }
         });
         plus.setOnClickListener(v -> {
-            if (count < 10) {
-                count++;
-                Locale l = new Locale("en", "PH");
-                qty.setText(String.format(l, "%d", count));
-            }
+            count++;
+            Locale l = new Locale("en", "PH");
+            qty.setText(String.format(l, "%d", count));
         });
         img.setImageResource(getIntent().getIntExtra("img", 0));
         details.setText(getIntent().getStringExtra("details"));
