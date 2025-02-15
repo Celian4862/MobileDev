@@ -53,7 +53,7 @@ public class ListAdapter extends ArrayAdapter<String> {
         });
         img.setImageResource(img_ids[position]);
         name.setText(product_names[position]);
-        String price_format = "$ " + prices[position] + ".00";
+        String price_format = context.getString(R.string.price, prices[position]);
         price.setText(price_format);
 
         return rowView;
