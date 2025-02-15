@@ -17,7 +17,8 @@ import java.util.Locale;
 public class DetailsActivity extends AppCompatActivity {
     Button confirm, minus, plus;
     ImageView img;
-    Integer count;
+    int count, position;
+    int[] counts;
     TextView details, price, product_name, qty;
 
     @Override
@@ -35,14 +36,22 @@ public class DetailsActivity extends AppCompatActivity {
         minus = findViewById(R.id.minus);
         plus = findViewById(R.id.plus);
         img = findViewById(R.id.img);
-        count = 0;
+        position = getIntent().getIntExtra("position", 4);
+        counts = getIntent().getIntArrayExtra("qty");
+        if (counts == null) {
+            counts = new int[5];
+        }
         details = findViewById(R.id.details);
         price = findViewById(R.id.price);
         product_name = findViewById(R.id.product_name);
         qty = findViewById(R.id.qty);
 
+        count = counts[position];
+
         confirm.setOnClickListener(v -> {
             Intent confirm = new Intent(DetailsActivity.this, AppActivity.class);
+            counts[position] = count;
+            confirm.putExtra("qty", counts);
             startActivity(confirm);
         });
         minus.setOnClickListener(v -> {
@@ -61,5 +70,7 @@ public class DetailsActivity extends AppCompatActivity {
         details.setText(getIntent().getStringExtra("details"));
         price.setText(getString(R.string.price, getIntent().getIntExtra("price", 0)));
         product_name.setText(getIntent().getStringExtra("product_name"));
+        Locale l = new Locale("en");
+        qty.setText(String.format(l, "%d", count));
     }
 }

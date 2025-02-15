@@ -52,10 +52,19 @@ public class AppActivity extends AppCompatActivity {
             return insets;
         });
 
+        int total_count = 0;
+        int[] qty;
+
         check_out = findViewById(R.id.checkout);
         list = findViewById(R.id.list);
 
-        check_out.setText(getString(R.string.check_out, getIntent().getIntExtra("checkout", 0)));
+        if ((qty = getIntent().getIntArrayExtra("qty")) != null) {
+            for (int count : qty) {
+                total_count += count;
+            }
+        }
+
+        check_out.setText(getString(R.string.check_out, total_count));
         check_out.setOnClickListener(v -> {
             Intent check_out = new Intent(AppActivity.this, CheckoutActivity.class);
             startActivity(check_out);
