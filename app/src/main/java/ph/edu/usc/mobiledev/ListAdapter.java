@@ -15,14 +15,14 @@ import androidx.annotation.Nullable;
 
 public class ListAdapter extends ArrayAdapter<String> {
     private final Activity context;
-    private final Integer[] img_ids, prices;
     private final int resource;
+    private final int[] img_ids, prices;
     private final String[] product_names, details;
 
-    public ListAdapter(@NonNull Activity context, int resource, Integer[] imgids, Integer[] prices, String[] details, String[] product_names) {
+    public ListAdapter(@NonNull Activity context, int resource, int[] img_ids, int[] prices, String[] details, String[] product_names) {
         super(context, resource, product_names);
         this.context = context;
-        this.img_ids = imgids;
+        this.img_ids = img_ids;
         this.details = details;
         this.prices = prices;
         this.resource = resource;
