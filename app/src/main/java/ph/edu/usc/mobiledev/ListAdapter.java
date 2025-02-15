@@ -46,6 +46,7 @@ public class ListAdapter extends ArrayAdapter<String> {
             dtl.putExtra("position", position);
             dtl.putExtra("price", prices[position]);
             dtl.putExtra("product_name", product_names[position]);
+            dtl.putExtra("qty", context.getIntent().getIntArrayExtra("qty"));
             context.startActivity(dtl);
         });
         img.setImageResource(img_ids[position]);
