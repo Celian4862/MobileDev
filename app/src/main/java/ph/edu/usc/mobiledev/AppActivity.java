@@ -1,5 +1,6 @@
 package ph.edu.usc.mobiledev;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ListView;
@@ -55,6 +56,10 @@ public class AppActivity extends AppCompatActivity {
         list = findViewById(R.id.list);
 
         check_out.setText(getString(R.string.check_out, getIntent().getIntExtra("checkout", 0)));
+        check_out.setOnClickListener(v -> {
+            Intent check_out = new Intent(AppActivity.this, CheckoutActivity.class);
+            startActivity(check_out);
+        });
 
         ListAdapter adapter = new ListAdapter(this, R.layout.list_layout, imgids, prices, details, product_names);
         list.setAdapter(adapter);
