@@ -16,6 +16,7 @@ import androidx.annotation.Nullable;
 public class ListAdapter extends ArrayAdapter<String> {
     private final Activity context;
     private final Integer[] img_ids, prices;
+    private final int resource;
     private final String[] product_names, details;
 
     public ListAdapter(@NonNull Activity context, int resource, Integer[] imgids, Integer[] prices, String[] details, String[] product_names) {
@@ -24,6 +25,7 @@ public class ListAdapter extends ArrayAdapter<String> {
         this.img_ids = imgids;
         this.details = details;
         this.prices = prices;
+        this.resource = resource;
         this.product_names = product_names;
     }
 
@@ -31,7 +33,7 @@ public class ListAdapter extends ArrayAdapter<String> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         LayoutInflater inflater = context.getLayoutInflater();
-        View rowView = inflater.inflate(R.layout.list_layout, null, true);
+        View rowView = inflater.inflate(resource, null, true);
 
         Button view_details = rowView.findViewById(R.id.btn);
         ImageView img = rowView.findViewById(R.id.img);
