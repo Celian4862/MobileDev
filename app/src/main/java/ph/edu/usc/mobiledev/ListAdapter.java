@@ -43,6 +43,7 @@ public class ListAdapter extends ArrayAdapter<String> {
             dtl = new Intent(context, DetailsActivity.class);
             dtl.putExtra("img", img_ids[position]);
             dtl.putExtra("details", details[position]);
+            dtl.putExtra("position", position);
             dtl.putExtra("price", prices[position]);
             dtl.putExtra("product_name", product_names[position]);
             context.startActivity(dtl);
