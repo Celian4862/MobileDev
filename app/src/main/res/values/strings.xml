@@ -24,4 +24,6 @@
     <string name="review_order">Review Order</string>
     <string name="check_out_plain">Check Out</string>
     <string name="total_price">Total: $ %1$d.00</string>
+    <string name="thanks">Thank you for shopping!</string>
+    <string name="back_to_shopping">Back to Shopping</string>
 </resources>
