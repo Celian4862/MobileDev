@@ -53,12 +53,12 @@ public class AppActivity extends AppCompatActivity {
         });
 
         int total_count = 0;
-        int[] qty;
+        int[] qty = getIntent().getIntArrayExtra("qty");
 
         check_out = findViewById(R.id.checkout);
         list = findViewById(R.id.list);
 
-        if ((qty = getIntent().getIntArrayExtra("qty")) != null) {
+        if (qty != null) {
             for (int count : qty) {
                 total_count += count;
             }
