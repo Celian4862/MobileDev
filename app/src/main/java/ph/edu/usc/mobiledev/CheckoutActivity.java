@@ -1,5 +1,6 @@
 package ph.edu.usc.mobiledev;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ListView;
@@ -40,6 +41,10 @@ public class CheckoutActivity extends AppCompatActivity {
             qty = new int[5];
         }
 
+        check_out.setOnClickListener(v -> {
+            Intent thank_you = new Intent(CheckoutActivity.this, OrderCompleteActivity.class);
+            startActivity(thank_you);
+        });
         ReviewOrderListAdapter adapter = new ReviewOrderListAdapter(this, R.layout.list_review_order, getIntent().getStringArrayExtra("product_names"), qty, prices);
         list.setAdapter(adapter);
 
